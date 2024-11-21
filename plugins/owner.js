@@ -13,19 +13,19 @@ async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender
 try{
 const config = await readEnv();
 let owner = ` 
---------------------------------
-*HEAR IS BOT OWNER INFO*
---------------------------------
-*NAME:-* *Queen_Ahinsa-MD User*
-________________________________
-*BOT CATACORY*:- *All Round*
-________________________________
-*REPO*:-*https://github.com/HerokuSL/Queen_Ahinsa-MD/tree/main*
---------------------------------
-*CONTACT*:-*+94775713391*
---------------------------------
->WHATSAPP BOT BY DILISHA
---------------------------------
+_________________________
+_________________________
+   ♨️ O W N E R ♨️
+│✫➠ - NAME - 𝑫𝑰𝑳𝑰𝑺𝑯𝑨
+│✫➠ - CONTACT -  94775713391
+│✫➠ - BOT - Queen_Ahinsa-MD
+│✫➠ - CONTRY - SRILANKA
+│✫➠ - Youtube - https://www.youtube.com/@srilanka-no1AWM-FF
+│✫➠ - REPO - github.com/HerokuZR/Queen_Ahinsa-MD
+_________________________
+_________________________
+
+> 𝑫𝑬𝑽𝑬𝑳𝑶𝑷𝑬𝑫 𝑩𝒀 𝑫𝑰𝑳𝑰𝑺𝑯𝑨
 `
 await conn.sendMessage(from, { text: owner ,
   contextInfo: {
