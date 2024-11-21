@@ -94,7 +94,9 @@ let up = `> *SRILANKAN SUPER WHATSAPP BOTZ IN EATH NOW
 │✫➠ - *📂REPOSITORY NAME:* Queen_Ahinsa-MD
 │✫➠ - *📃DESCRIPTION:* REAL SYSTEM WHATSAPP BOT
 │✫➠ - *🛡️OWNER:*WHATSAPP BOT SRILANKA 
-│✫➠ - *🌐 URL:* https://github.com/HerokuSL/Queen_Ahinsa-MD
+│✫➠ - *🌐URL:* https://github.com/HerokuSL/Queen_Ahinsa-MD
+│✫➠ - *♨️YOUTUBE:* https://www.youtube.com/@srilanka-no1AWM-FF 
+│✫➠ - *💖PLUGS: * බොට් පිලිබද අවබෝදය සදහා .alive විදානය යොදන්න
 ╰━━━━━━━━━━━━━━━━━╯
 
 *YOUR BOT ACTIVE NOW ENJOY♥️🪄*\n\nPREFIX: ${prefix}`;
