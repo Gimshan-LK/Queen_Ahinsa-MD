@@ -98,7 +98,7 @@ let up = `> *SRILANKAN SUPER WHATSAPP BOTZ IN EATH NOW
 │✫➠ - *♨️YOUTUBE:* https://www.youtube.com/@srilanka-no1AWM-FF 
 │✫➠ - *💖PLUGS: * බොට් පිලිබද අවබෝදය සදහා .alive විදානය යොදන්න
 ╰━━━━━━━━━━━━━━━━━╯
-
+> 𝑫𝑬𝑽𝑬𝑳𝑶𝑷𝑬𝑫 𝑩𝒀 𝑫𝑰𝑳𝑰𝑺𝑯𝑨
 *YOUR BOT ACTIVE NOW ENJOY♥️🪄*\n\nPREFIX: ${prefix}`;
 conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://i.ibb.co/SR76mBh/Pu3-ZYHBS5139.jpg` }, caption: up })
 
