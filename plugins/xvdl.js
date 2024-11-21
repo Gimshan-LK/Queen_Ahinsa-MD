@@ -10,7 +10,7 @@ const apilink = 'https://dark-yasiya-api-new.vercel.app' // API LINK ( DO NOT CH
 cmd({
     pattern: "xvdl",
     alias: ["xvdl","xnxx","ph"],
-    react: "🔞",
+    react: "💋",
     desc: "Download xvideo.com porn video",
     category: "download",
     use: '.xvideo < text >',
@@ -29,7 +29,7 @@ const xv_info = await fetchJson(`${apilink}/download/xvideo?url=${xv_list.result
   // FIRST VIDEO
   
 const msg = `
-           🔞 *XVIDEO DOWNLOADER* 🔞
+           💋 PHORN VIDEO DOWNLOAD 💋
 
        
 • *Title* - ${xv_info.result.title}
