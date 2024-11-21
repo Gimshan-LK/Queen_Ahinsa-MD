@@ -13,7 +13,7 @@ cmd({
     desc: "mediafire",
     category: "download",
     use: '.mfire < mediafire url >',
-    react: "🧚‍♂️",
+    react: "🛒",
     filename: __filename
 },
 async(conn, mek, m,{from, quoted, reply, q }) => {
@@ -25,7 +25,7 @@ if(!q) return await reply("Please give me mediafire url");
 const mfire = await fetchJson(`${apilink}/download/mfire?url=${q}`);
   
 const msg = `
-           🔥 *MEDIAFIRE DOWNLOADER* 🔥
+           🔥 MEDIA FIRE DOWNLOAD 🔥
 
 
 • *File Name* - ${mfire.result.fileName}
