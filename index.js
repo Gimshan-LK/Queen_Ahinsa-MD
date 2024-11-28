@@ -23,12 +23,12 @@ const axios = require('axios')
 const { File } = require('megajs')
 const { fromBuffer } = require('file-type')
 const bodyparser = require('body-parser')
-const mongoose = require('mongoose')
 const { tmpdir } = require('os')
 const Crypto = require('crypto')
 const path = require('path')
+const prefix = config.PREFIX
 
-const ownerNumber = ['94775713391']
+const ownerNumber = ['94771098429']
 
 //===================SESSION-AUTH============================
 if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
@@ -38,7 +38,7 @@ const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
 filer.download((err, data) => {
 if(err) throw err
 fs.writeFile(__dirname + '/auth_info_baileys/creds.json', data, () => {
-console.log("Session downloaded ✅")
+console.log("SESSION DOWNLOADED COMPLETED ✅")
 })})}
 
 const express = require("express");
@@ -48,16 +48,7 @@ const port = process.env.PORT || 9090;
 //=============================================
 
 async function connectToWA() {
-//===================connect mongodb===================
-const connectDB = require('./lib/mongodb')
-connectDB();
-//==================================
-const {readEnv} = require('./lib/database')
-const config = await readEnv();
-const prefix = ('.')
-//=================================
-        
-console.log("ᴄᴏɴɴᴇᴄᴛɪɴɢ QUEEN ʙᴏᴛ 🧬...");
+console.log("CONNECTING QUEEN_AHINSA-MD...");
 const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
 var { version } = await fetchLatestBaileysVersion()
 
@@ -77,34 +68,34 @@ if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
 connectToWA()
 }
 } else if (connection === 'open') {
-console.log('😼 ɪɴsᴛᴀʟʟɪɴɢ ᴘʟᴜɢɪɴs ғɪʟᴇs ᴘʟᴢ ᴡᴀɪᴛ... ')
+console.log('♻️ INSTALLING PLUGINS FILES PLEASE WAIT... 🪄')
 const path = require('path');
 fs.readdirSync("./plugins/").forEach((plugin) => {
 if (path.extname(plugin).toLowerCase() == ".js") {
 require("./plugins/" + plugin);
 }
 });
-console.log('ᴘʟᴜɢɪɴs ɪɴsᴛᴀʟʟᴇᴅ sᴜᴄᴄᴇssғᴜʟʏ ✅')
-console.log('Queen_Ahinsa-MD ᴄᴏɴɴᴇᴄᴛᴇᴅ ᴛᴏ ᴡʜᴀᴛsᴀᴘᴘ ✅')
+console.log('PLUGINS FILES INSTALL SUCCESSFULLY ✅')
+console.log('QUEEN_AHINSA-MD CONNECTED TO WHATSAPP ENJOY ✅')
 
-let up = `> *SRILANKAN SUPER WHATSAPP BOTZ IN EATH NOW
+let up = `*╭──────────────●●►*
 
+*╭⊱✫🔮 QUEEN_AHINSA-MD 🔮✫⊱╮*
+*│✫➠ - 📂REPOSITORY NAME:* *QUEEN_AHINSA-MD*
+*│✫➠ - 📃DESCRIPTION:* *THE WORLD BEST WHATSAPP BOT♻️*
+*│✫➠ - 🛡️OWNER:* *SILENT LOVER⁴³²*
+*│✫➠ - 🌐URL:* *https://github.com/Koyeb-LK/Queen_Ahinsa-MD*
 
-╭⊱✫🔮 Queen_Ahinsa-MD 🔮✫⊱╮
-│✫➠ - *📂REPOSITORY NAME:* Queen_Ahinsa-MD
-│✫➠ - *📃DESCRIPTION:* REAL SYSTEM WHATSAPP BOT
-│✫➠ - *🛡️OWNER:*WHATSAPP BOT SRILANKA 
-│✫➠ - *🌐URL:* https://github.com/HerokuSL/Queen_Ahinsa-MD
-│✫➠ - *♨️YOUTUBE:* https://www.youtube.com/@srilanka-no1AWM-FF 
-│✫➠ - *💖PLUGS: * බොට් පිලිබද අවබෝදය සදහා .alive විදානය යොදන්න
-╰━━━━━━━━━━━━━━━━━╯
-> 𝑫𝑬𝑽𝑬𝑳𝑶𝑷𝑬𝑫 𝑩𝒀 𝑫𝑰𝑳𝑰𝑺𝑯𝑨
-*YOUR BOT ACTIVE NOW ENJOY♥️🪄*\n\nPREFIX: ${prefix}`;
-conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://i.ibb.co/SR76mBh/Pu3-ZYHBS5139.jpg` }, caption: up })
+*YOUR BOT ACTIVE NOW ENJOY♥️🪄*\n\n*PREFIX: ${prefix}*
+
+*╰──────────────●●►*`;
+conn.sendMessage(conn.user.id, { image: { url: `https://i.ibb.co/SR76mBh/Pu3-ZYHBS5139.jpg` }, caption: up })
 
 }
 })
 conn.ev.on('creds.update', saveCreds)  
+        
+//=============readstatus=======
 
 conn.ev.on('messages.upsert', async(mek) => {
 mek = mek.messages[0]
@@ -163,16 +154,19 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
                 return conn.sendMessage(jid, { audio: await getBuffer(url), caption: caption, mimetype: 'audio/mpeg', ...options }, { quoted: quoted, ...options })
               }
             }
-
-
-
-//=================================WORKTYPE==============
+        
+   
+//=================================WORKTYPE=========================================== 
 if(!isOwner && config.MODE === "private") return
 if(!isOwner && isGroup && config.MODE === "inbox") return
 if(!isOwner && isGroup && config.MODE === "groups") return
 //======================================================
 
-  
+
+
+
+
+        
 const events = require('./command')
 const cmdName = isCmd ? body.slice(1).trim().split(" ")[0].toLowerCase() : false;
 if (isCmd) {
@@ -207,7 +201,7 @@ command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, i
 })
 }
 app.get("/", (req, res) => {
-res.send("HEY, Queen_Ahinsa-MD STARTED ✅");
+res.send("HEY, QUEEN_AHINSA-MD STARTED ✅");
 });
 app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`));
 setTimeout(() => {
