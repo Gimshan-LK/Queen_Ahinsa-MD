@@ -23,10 +23,10 @@ const axios = require('axios')
 const { File } = require('megajs')
 const { fromBuffer } = require('file-type')
 const bodyparser = require('body-parser')
+const mongoose = require('mongoose')
 const { tmpdir } = require('os')
 const Crypto = require('crypto')
 const path = require('path')
-const prefix = config.PREFIX
 
 const ownerNumber = ['94771098429']
 
@@ -38,7 +38,7 @@ const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
 filer.download((err, data) => {
 if(err) throw err
 fs.writeFile(__dirname + '/auth_info_baileys/creds.json', data, () => {
-console.log("SESSION DOWNLOADED COMPLETED ✅")
+console.log("Session downloaded ✅")
 })})}
 
 const express = require("express");
@@ -48,7 +48,16 @@ const port = process.env.PORT || 9090;
 //=============================================
 
 async function connectToWA() {
-console.log("CONNECTING Queen_Ahinsa-MD BOT🧬...");
+//===================connect mongodb===================
+const connectDB = require('./lib/mongodb')
+connectDB();
+//==================================
+const {readEnv} = require('./lib/database')
+const config = await readEnv();
+const prefix = ('.')
+//=================================
+        
+console.log("ᴄᴏɴɴᴇᴄᴛɪɴɢ QUEEN_AHINSA-MD🧬...");
 const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
 var { version } = await fetchLatestBaileysVersion()
 
@@ -68,37 +77,31 @@ if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
 connectToWA()
 }
 } else if (connection === 'open') {
-console.log('♻️ INSTALLING PLUGINS FILES PLEASE WAIT... 🪄')
+console.log('😼 ɪɴsᴛᴀʟʟɪɴɢ ᴘʟᴜɢɪɴs ғɪʟᴇs ᴘʟᴢ ᴡᴀɪᴛ... ')
 const path = require('path');
 fs.readdirSync("./plugins/").forEach((plugin) => {
 if (path.extname(plugin).toLowerCase() == ".js") {
 require("./plugins/" + plugin);
 }
 });
-console.log('PLUGINS FILES INSTALL SUCCESSFULLY ✅')
-console.log('Queen_Ahinsa-MD CONNECTED TO WHATSAPP ENJOY ✅')
+console.log('ᴘʟᴜɢɪɴs ɪɴsᴛᴀʟʟᴇᴅ sᴜᴄᴄᴇssғᴜʟʏ ✅')
+console.log('sɪʟᴇɴᴛ-sᴏʙx-ᴍᴅ ᴄᴏɴɴᴇᴄᴛᴇᴅ ᴛᴏ ᴡʜᴀᴛsᴀᴘᴘ ✅')
 
-let up = `*╭──────────────●●►*
-___________________________________________________________________________
-*╭⊱✫🔮 QUEEN_AHINSA-MD 🔮✫⊱╮*
-*│✫➠ - 📂REPOSITORY NAME:* *QUEEN_AHINSA-MD*
-*│✫➠ - 📃DESCRIPTION:* *THE WORLD BEST WHATSAPP BOT♻️*
-*│✫➠ - 🛡️OWNER:* *SILENT LOVER⁴³²*
-*│✫➠ - 🌐URL:* *https://github.com/Koyeb-LK/Queen_Ahinsa-MD*
-*│✫➠ - 🚨YOUTUBE:* *https://www.youtube.com/@srilanka-no1AWM-FF*
-*│✫➠ - ⛩️WHATSAPP:* *https://chat.whatsapp.com/IzbIrQ9bl858zCGxIZzFq4*
-___________________________________________________________________________
+let up = `> *
 
-*YOUR BOT ACTIVE NOW ENJOY♥️🪄*\n\n*PREFIX: ${prefix}*
+╭⊱✫🔮 QUEEN_AHINSA-MD 🔮✫⊱╮
+│✫➠ - *📂REPOSITORY NAME:* Queen_Ahinsa-MD
+│✫➠ - *📃DESCRIPTION:* ❁ᴡᴏʀʟᴅ ʙᴇsᴛ ᴡʜᴀᴛsᴀᴘᴘ ʙᴏᴛ❁
+│✫➠ - *🛡️OWNER:* Dilisha Gimshan
+│✫➠ - *🌐 URL:* https://github.com/Koyeb-LK/Queen_Ahinsa-MD
+╰━━━━━━━━━━━━━━━━━╯
 
-*╰──────────────●●►*`;
-conn.sendMessage(conn.user.id, { image: { url: `https://i.ibb.co/SR76mBh/Pu3-ZYHBS5139.jpg` }, caption: up })
+*YOUR BOT ACTIVE NOW ENJOY♥️🪄*\n\nPREFIX: ${prefix}`;
+conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://i.ibb.co/SR76mBh/Pu3-ZYHBS5139.jpg` }, caption: up })
 
 }
 })
 conn.ev.on('creds.update', saveCreds)  
-        
-//=============readstatus=======
 
 conn.ev.on('messages.upsert', async(mek) => {
 mek = mek.messages[0]
@@ -159,12 +162,15 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
             }
 
 
+//============================        
         
-//=================================WORKTYPE=============
+//=================================WORKTYPE=========================================== 
 if(!isOwner && config.MODE === "private") return
 if(!isOwner && isGroup && config.MODE === "inbox") return
 if(!isOwner && isGroup && config.MODE === "groups") return
 //======================================================
+
+
 
 
 
