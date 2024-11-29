@@ -8,7 +8,7 @@ cmd({
 
     pattern: "menu",
 
-    react: "🛸",
+    react: "💥",
 
     alias: ["panel","commands"],
 
