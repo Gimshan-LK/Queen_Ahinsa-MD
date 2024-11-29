@@ -22,7 +22,7 @@
     "ALIVE_MSG": {
       "description": "paste your alive message hear.",
       "required": true,
-      "value": "HII DEAR IM ONLINE.!!♻️"
+      "value": "💥 HI MY FRIENDS I AM ALIVE NOW ARE YOUR PROBLEM 💥"
     },
     
     "PREFIX": {
@@ -97,14 +97,6 @@
       "required": true,
       "value": "QUEEN_AHINSA-MD"
     }, 
-
-    "HEART_REACT": {
-      "description": "Make it true if you want bot only heart ♥️ emjois reaction .",
-      "required": true,
-      "value": "false"
-    }
-
-},
 
      "buildpacks": [
         {
