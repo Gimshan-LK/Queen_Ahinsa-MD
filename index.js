@@ -28,7 +28,7 @@ const Crypto = require('crypto')
 const path = require('path')
 const prefix = config.PREFIX
 
-const ownerNumber = ['94771098429']
+const ownerNumber = ['923096287432']
 
 //===================SESSION-AUTH============================
 if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
@@ -48,7 +48,7 @@ const port = process.env.PORT || 9090;
 //=============================================
 
 async function connectToWA() {
-console.log("CONNECTING QUEEN_AHINSA-MD...");
+console.log("CONNECTING Queen_Ahinsa-MD BOT🧬...");
 const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
 var { version } = await fetchLatestBaileysVersion()
 
@@ -75,21 +75,38 @@ if (path.extname(plugin).toLowerCase() == ".js") {
 require("./plugins/" + plugin);
 }
 });
-console.log('PLUGINS FILES INSTALL SUCCESSFULLY ✅')
-console.log('QUEEN_AHINSA-MD CONNECTED TO WHATSAPP ENJOY ✅')
+console.log('PLUGINS FILES INSTALL SUCCESSFULLY 🔌')
+console.log('Queen_Ahinsa-MD CONNECTED TO WHATSAPP ENJOY ✅')
 
 let up = `*╭──────────────●●►*
 
-*╭⊱✫🔮 QUEEN_AHINSA-MD 🔮✫⊱╮*
-*│✫➠ - 📂REPOSITORY NAME:* *QUEEN_AHINSA-MD*
-*│✫➠ - 📃DESCRIPTION:* *THE WORLD BEST WHATSAPP BOT♻️*
-*│✫➠ - 🛡️OWNER:* *SILENT LOVER⁴³²*
-*│✫➠ - 🌐URL:* *https://github.com/Koyeb-LK/Queen_Ahinsa-MD*
+    ╭──────────────⊷❒
+*සාදරයෙන් පිලිගන්නවා Queen_Ahinsa-MD වෙත:|👋*
 
+- *💥 Queen_Ahinsa-MD ඔබගේ ගිණුමේ දැන් සක්‍රියයි*
+
+- *🔌 BOT පිළිබද සම්පූර්ණ අවබෝධයක් ලබා ගැනීමට 📖 .menu විධානය භාවිතා කරන්න...*
+
+- *⚠️ මෙය ඔබගේ LOG අංකයයි.මෙහි විධාන භාවිතයෙන් වළකින්න.*
+⁠⁠⁠⁠╰──────────────⊷❒
+╭──────────────⊷❒
+*💥 Queen_Ahinsa-MD CONNECTED SUCCESSFULY 🚀*
+
+- *💥 Welcome to QUEEN_AHINSA-MD*
+
+- *💥 Queen_Ahinsa-MD WORKING Your Account*
+
+- *🔌 Use the  .menu command to get a full understanding of the Queen_Ahinsa-MD testimonial...*
+
+- *💥 Queen_Ahinsa-MD is a powerfull WhatsApp robot developed by Dilisha.💥*
+
+- *⚠️ This is your LOG number. Avoid using the command here.*
+⁠⁠⁠⁠╰──────────────⊷❒
+    
 *YOUR BOT ACTIVE NOW ENJOY♥️🪄*\n\n*PREFIX: ${prefix}*
 
 *╰──────────────●●►*`;
-conn.sendMessage(conn.user.id, { image: { url: `https://i.ibb.co/SR76mBh/Pu3-ZYHBS5139.jpg` }, caption: up })
+conn.sendMessage(conn.user.id, { image: { url: `https://files.catbox.moe/h5ddpq.jpg` }, caption: up })
 
 }
 })
@@ -155,7 +172,9 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
               }
             }
         
-   
+
+
+        
 //=================================WORKTYPE=========================================== 
 if(!isOwner && config.MODE === "private") return
 if(!isOwner && isGroup && config.MODE === "inbox") return
@@ -201,7 +220,7 @@ command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, i
 })
 }
 app.get("/", (req, res) => {
-res.send("HEY, QUEEN_AHINSA-MD STARTED ✅");
+res.send("HEY, Queen_Ahinsa-MD STARTED ✅");
 });
 app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`));
 setTimeout(() => {
