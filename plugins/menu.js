@@ -156,7 +156,7 @@ let madeMenu = `❁ ════ ❃•◯•❃ ════ ❁
 
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Queen_Ahimsa-MD Official Whatsapp Bot³²*
+Queen_Ahinsa-MD Official Whatsapp Bot³²*
 
 ╰━❁ ═══ ❃•⇆•❃ ═══ ❁━╯
 `
