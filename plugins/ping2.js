@@ -4,18 +4,8 @@ const os = require("os")
 const {runtime} = require('../lib/functions')
 const config = require('../config')
 
-
 cmd({
     pattern: "ping",
-    react: "🤖",
-    alias: ["speed"],
-    desc: "Check bot\'s ping",
-    category: "main",
-    use: '.ping2',
-    filename: __filename
-},
-cmd({
-    pattern: "ping2",
     react: "♻️",
     alias: ["speed"],
     desc: "Check bot\'s ping",
@@ -30,7 +20,6 @@ const startTime = Date.now()
         const endTime = Date.now()
         const ping = endTime - startTime
         await conn.sendMessage(from, { text: `*♻️ Speed... : ${ping}ms*`}, { quoted: message })
-        await m.reply("✅");
     } catch (e) {
         console.log(e)
         reply(`${e}`)
