@@ -1,14 +1,13 @@
-const {readEnv} = require('../lib/database')
-const {cmd , commands} = require('../command')
-const config = require('../config')
+const { cmd } = require('../command');
 
 cmd({
     pattern: "owner",
-    desc: "im owner",
-    react: "👩‍💻",
+    react: "👾", // Reaction emoji when the command is triggered
+    alias: ["silent", "king"],
+    desc: "Get owner number",
     category: "main",
     filename: __filename
-},
+}, 
 async(conn, mek, m,{from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 try{
 const config = await readEnv();
