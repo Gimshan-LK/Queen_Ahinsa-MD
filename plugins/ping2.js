@@ -1,7 +1,10 @@
+const {readEnv} = require('../lib/database')
+const {cmd , commands} = require('../command')
+const os = require("os")
+const {runtime} = require('../lib/functions')
 const config = require('../config')
-let fs = require('fs')
-const { cmd, commands } = require('../command')
-const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson} = require('../lib/functions')
+
+
 cmd({
     pattern: "ping",
     react: "🤖",
