@@ -3,6 +3,8 @@ const {cmd , commands} = require('../command')
 const os = require("os")
 const {runtime} = require('../lib/functions')
 const axios = require('axios')
+
+
 cmd({
 
     pattern: "menu",
@@ -24,6 +26,7 @@ cmd({
 async(conn, mek, m,{from, l, quoted, body, isCmd, umarmd, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 
 try{
+const config = await readEnv();
 let madeMenu = `╭━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
 
 *Queen_Ahinsa-MD*
@@ -162,10 +165,28 @@ Queen_Ahinsa-MD Official Whatsapp Bot³²*
 ╰━❁ ═══ ❃•⇆•❃ ═══ ❁━╯
 `
 
-await conn.sendMessage(from,{image:{url:config.ALIVE_IMG},caption:madeMenu},{quoted:mek})
-
+await conn.sendMessage(from, { text: madeMenu ,
+  contextInfo: {
+    mentionedJid: [ '' ],
+    groupMentions: [],
+    forwardingScore: 999,
+    isForwarded: false,
+    forwardedNewsletterMessageInfo: {
+      newsletterJid: '120363232588171807@newsletter',
+      newsletterName: "QUEEN_AHINSA-MD",
+      serverMessageId: 999
+    },
+externalAdReply: { 
+title: '◀︎Queen_Ahinsa-MD MENU▶︎',
+body: `${pushname}`,
+mediaType: 1,
+thumbnailUrl: "https://i.ibb.co/SR76mBh/Pu3-ZYHBS5139.jpg" ,
+renderLargerThumbnail: true,
+showAdAttribution: true
+}
+}}, { quoted: mek})
 }catch(e){
 console.log(e)
 reply(`${e}`)
 }
-})
+});
