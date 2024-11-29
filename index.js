@@ -8,27 +8,18 @@ fetchLatestBaileysVersion,
 Browsers
 } = require('@whiskeysockets/baileys')
 
-
-const l = console.log
 const { getBuffer, getGroupAdmins, getRandom, h2k, isUrl, Json, runtime, sleep, fetchJson } = require('./lib/functions')
 const fs = require('fs')
-const ff = require('fluent-ffmpeg')
 const P = require('pino')
 const config = require('./config')
 const qrcode = require('qrcode-terminal')
-const StickersTypes = require('wa-sticker-formatter')
 const util = require('util')
 const { sms,downloadMediaMessage } = require('./lib/msg')
 const axios = require('axios')
 const { File } = require('megajs')
-const { fromBuffer } = require('file-type')
-const bodyparser = require('body-parser')
-const { tmpdir } = require('os')
-const Crypto = require('crypto')
-const path = require('path')
-const prefix = config.PREFIX
+const prefix = '.'
 
-const ownerNumber = ['923096287432']
+const ownerNumber = ['94775713391']
 
 //===================SESSION-AUTH============================
 if (!fs.existsSync(__dirname + '/auth_info_baileys/creds.json')) {
@@ -38,17 +29,17 @@ const filer = File.fromURL(`https://mega.nz/file/${sessdata}`)
 filer.download((err, data) => {
 if(err) throw err
 fs.writeFile(__dirname + '/auth_info_baileys/creds.json', data, () => {
-console.log("SESSION DOWNLOADED COMPLETED ✅")
+console.log("Session downloaded 📥")
 })})}
 
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 9090;
+const port = process.env.PORT || 8000;
 
 //=============================================
 
 async function connectToWA() {
-console.log("CONNECTING Queen_Ahinsa-MD BOT🧬...");
+console.log("Connecting QUEEN_AHINSA-MD🧬...");
 const { state, saveCreds } = await useMultiFileAuthState(__dirname + '/auth_info_baileys/')
 var { version } = await fetchLatestBaileysVersion()
 
@@ -68,59 +59,36 @@ if (lastDisconnect.error.output.statusCode !== DisconnectReason.loggedOut) {
 connectToWA()
 }
 } else if (connection === 'open') {
-console.log('♻️ INSTALLING PLUGINS FILES PLEASE WAIT... 🪄')
+console.log('📥 ¼ Installing... ')
 const path = require('path');
 fs.readdirSync("./plugins/").forEach((plugin) => {
 if (path.extname(plugin).toLowerCase() == ".js") {
 require("./plugins/" + plugin);
 }
 });
-console.log('PLUGINS FILES INSTALL SUCCESSFULLY 🔌')
-console.log('Queen_Ahinsa-MD CONNECTED TO WHATSAPP ENJOY ✅')
+console.log('Plugins installed successful 🔌')
+console.log('Bot connected to whatsapp ✅')
 
-let up = `*╭──────────────●●►*
+let up = `╭⊱✫🔮 QUEEN_AHINSA-MD 🔮✫⊱╮*
+*│✫➠ - 📂REPOSITORY NAME:* *QUEEN_AHINSA-MD*
+*│✫➠ - 📃DESCRIPTION:* *THE WORLD BEST WHATSAPP BOT♻️*
+*│✫➠ - 🛡️OWNER:* *Dilisha Gimshan*
+*│✫➠ - 🌐URL:* *https://github.com/Koyeb-LK/Queen_Ahinsa-MD*
 
-    ╭──────────────⊷❒
-*සාදරයෙන් පිලිගන්නවා Queen_Ahinsa-MD වෙත:|👋*
-
-- *💥 Queen_Ahinsa-MD ඔබගේ ගිණුමේ දැන් සක්‍රියයි*
-
-- *🔌 BOT පිළිබද සම්පූර්ණ අවබෝධයක් ලබා ගැනීමට 📖 .menu විධානය භාවිතා කරන්න...*
-
-- *⚠️ මෙය ඔබගේ LOG අංකයයි.මෙහි විධාන භාවිතයෙන් වළකින්න.*
-⁠⁠⁠⁠╰──────────────⊷❒
-╭──────────────⊷❒
-*💥 Queen_Ahinsa-MD CONNECTED SUCCESSFULY 🚀*
-
-- *💥 Welcome to QUEEN_AHINSA-MD*
-
-- *💥 Queen_Ahinsa-MD WORKING Your Account*
-
-- *🔌 Use the  .menu command to get a full understanding of the Queen_Ahinsa-MD testimonial...*
-
-- *💥 Queen_Ahinsa-MD is a powerfull WhatsApp robot developed by Dilisha.💥*
-
-- *⚠️ This is your LOG number. Avoid using the command here.*
-⁠⁠⁠⁠╰──────────────⊷❒
-    
 *YOUR BOT ACTIVE NOW ENJOY♥️🪄*\n\n*PREFIX: ${prefix}*
 
 *╰──────────────●●►*`;
-conn.sendMessage(conn.user.id, { image: { url: `https://files.catbox.moe/h5ddpq.jpg` }, caption: up })
+conn.sendMessage(ownerNumber + "@s.whatsapp.net", { image: { url: `https://i.ibb.co/SR76mBh/Pu3-ZYHBS5139.jpg` }, caption: up })
 
 }
 })
 conn.ev.on('creds.update', saveCreds)  
-        
-//=============readstatus=======
 
 conn.ev.on('messages.upsert', async(mek) => {
 mek = mek.messages[0]
 if (!mek.message) return	
 mek.message = (getContentType(mek.message) === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
-if (mek.key && mek.key.remoteJid === 'status@broadcast' && config.AUTO_READ_STATUS === "true"){
-await conn.readMessages([mek.key])
-}
+if (mek.key && mek.key.remoteJid === 'status@broadcast') return
 const m = sms(conn, mek)
 const type = getContentType(mek.message)
 const content = JSON.stringify(mek.message)
@@ -149,7 +117,7 @@ const isReact = m.message.reactionMessage ? true : false
 const reply = (teks) => {
 conn.sendMessage(from, { text: teks }, { quoted: mek })
 }
-        
+
 conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
               let mime = '';
               let res = await axios.head(url)
@@ -171,19 +139,6 @@ conn.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
                 return conn.sendMessage(jid, { audio: await getBuffer(url), caption: caption, mimetype: 'audio/mpeg', ...options }, { quoted: quoted, ...options })
               }
             }
-        
-
-
-        
-//=================================WORKTYPE=========================================== 
-if(!isOwner && config.MODE === "private") return
-if(!isOwner && isGroup && config.MODE === "inbox") return
-if(!isOwner && isGroup && config.MODE === "groups") return
-//======================================================
-
-
-
-
 
         
 const events = require('./command')
@@ -216,13 +171,14 @@ mek.type === "stickerMessage"
 ) {
 command.function(conn, mek, m,{from, l, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply})
 }});
+//============================================================================ 
 
 })
 }
 app.get("/", (req, res) => {
-res.send("HEY, Queen_Ahinsa-MD STARTED ✅");
+res.send("hey, bot started 🏆");
 });
 app.listen(port, () => console.log(`Server listening on port http://localhost:${port}`));
 setTimeout(() => {
 connectToWA()
-}, 4000);
+}, 4000);  
