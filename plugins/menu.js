@@ -1,19 +1,22 @@
-const {readEnv} = require('../lib/database')
+const config = require('../config')
 const {cmd , commands} = require('../command')
+const os = require("os")
+const {runtime} = require('../lib/functions')
+const axios = require('axios')
 
 cmd({
 
     pattern: "menu",
 
-    react: "📄",
+    react: "🛸",
 
-    alias: ["panel","list","commands"],
+    alias: ["panel","commands"],
 
     desc: "Get bot\'s command list.",
 
     category: "main",
 
-    use: '.menu3',
+    use: '.menu',
 
     filename: __filename
 
@@ -22,8 +25,7 @@ cmd({
 async(conn, mek, m,{from, l, quoted, body, isCmd, umarmd, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply}) => {
 
 try{
-const config = await readEnv();
-let madeMenu = `❁ ════ ❃•◯•❃ ════ ❁
+let madeMenu = `╭━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
 
 *Queen_Ahinsa-MD*
 
