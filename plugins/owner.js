@@ -41,7 +41,7 @@ await conn.sendMessage(from, { text: owner ,
       serverMessageId: 999
     },
 externalAdReply: { 
-title: 'SILENTLOVER432',
+title: 'Queen_Ahinsa-MD,
 body: `${pushname}`,
 mediaType: 1,
 sourceUrl: "0742346814 I'M MSG YOU FROM OWNER ADS" ,
