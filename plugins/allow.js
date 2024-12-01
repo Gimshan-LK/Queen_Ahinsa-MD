@@ -28,7 +28,7 @@ async(conn, mek, m, {from, args, reply}) => {
         const response = await axios.get(url);
         const { extract, title } = response.data;
 
-        const message = `*${title}*\n\n${extract}\n\n> *POWERED by ASITHA-MD*`;
+        const message = `*${title}*\n\n${extract}\n\n> *POWERED by Queen_Ahinsa-MD*`;
         return await conn.sendMessage(from, { text: message }, { quoted: mek });
     } catch (e) {
         console.log(e);
@@ -59,7 +59,7 @@ try{
  ${res.TITLE}\n\n*┃◉* *⇨ ᴅᴀᴛᴇ :*
  ${res.PUBLISHED}\n\n*┃◉* *⇨ ᴜʀʟ :*
  ${res.URL}\n\n*┃◉* *⇨ Description :*
- ${res.DESCRIPTION}\n\n> *POWERED by ARROW-MD*\n\n`},
+ ${res.DESCRIPTION}\n\n> *POWERED by Queen_Ahinsa-MD*\n\n`},
 			{ quoted: mek });
 await conn.sendMessage(from, { react: { text: `✅`, key: mek.key }}) 
 } catch (e) {
