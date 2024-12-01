@@ -169,7 +169,7 @@ let status = `*┌────────────────────�
 *├* ⏰ *Runtime:-* ${runtime(process.uptime())}
 *├* 📟 *Ram usage:-* ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${Math.round(require('os').totalmem / 1024 / 1024)}MB
 *├*⚙️ *Platform:-* ${os.hostname()}
-*├* 👨‍💻 *Owners:-* ${msr.CREATED_BY}
+*├* 👨‍💻 *Owners:-* DILISHA GIMSHAN
 *├* 🧬 *Version:-* ${msr.VERSION}
 *└───────────────────────*
 
