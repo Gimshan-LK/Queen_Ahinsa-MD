@@ -1,4 +1,4 @@
-const { cmd, commands } = require('../command');
+ const { cmd, commands } = require('../command');
 let { img2url } = require('@blackamda/telegram-image-url');
 const { getRandom } = require('../lib/functions');
 const fs = require('fs');
@@ -30,3 +30,4 @@ const fileType = require("file-type");
     reply("ErROR.....");
 }
 });
+
