@@ -225,7 +225,7 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
         // Send the movie information along with the poster image
         await conn.sendMessage(from, {
             image: { url: imageUrl },
-            caption: `${movieInfo}\n> *POWERED by ARROW-MD*`
+            caption: `${movieInfo}\n> *POWERED by Queen_Ahinsa-MD-MD*`
         }, { quoted: mek });
     } catch (e) {
         console.log(e);
@@ -264,7 +264,7 @@ const msg = `
 
 • *Link* - ${news.result.url}
 
-> *POWERED by ASITHA-MD*`
+> *POWERED by Queen_Ahinsa-MD*`
 
 
 await conn.sendMessage( from, { image: { url: news.result.image || '' }, caption: msg }, { quoted: mek })
