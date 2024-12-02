@@ -27,13 +27,13 @@ async function getPremiumUsers() {
     return preUsers.map((v) => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net");
 }
 
-const { storenumrepdata } = require('../lib/nonbtn')
+const { storenumrepdata } = require('../lib/nonbutton')
 function formatNumber(num) {
     return String(num).padStart(2, '0');
 } 
 
 
-const yourName = "*POWERED by ARROW-MD*"; // YOURBOTNAME 💚 කියන තැනට ඔයාගේ බොට්ගේ නම හරි ඔයාගෙ නම හරි දාන්න.
+const yourName = "*POWERED by Queen_Ahinsa-MD*"; // YOURBOTNAME 💚 කියන තැනට ඔයාගේ බොට්ගේ නම හරි ඔයාගෙ නම හරි දාන්න.
 
 
 
